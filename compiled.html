@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Idea Generator</title>
+    <style>body, html {
+      height: 80%;
+      padding: 0px;
+    }
+    html {
+      background-color: rgba(0, 255, 0, 0.15);
+      transition: background-color 0.25s ease-in-out;
+    }
+    #allContent {
+      margin: 0px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      font-family: sans-serif;
+      padding: 0px;
+    }
+    h1 {
+      font-size: 4em;
+    }
+    #slotBox {
+      margin-right: auto;
+      margin-left: auto;
+      list-style: none;
+      display: flex;
+      width: 75%;
+      height: auto;
+      justify-content: space-around;
+      padding: 0px;
+      align-items: center;
+    }
+    #slotBox li {
+      background-color: #fc836c;
+      opacity: 1;
+      width: 28%;
+      padding: 15% 0px 15% 0px;
+      text-align: center;
+      font-size: 190%;
+      font-weight: bolder;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 1px 0px 0 rgba(0,0,0,0.5),
+      2px 0px 0 rgba(0,0,0,0.5),
+      -1px 0px 0 rgba(0,0,0,0.5),
+      -2px 0px 0 rgba(0,0,0,0.5),
+      0px 1px 0 rgba(0,0,0,0.5),
+      0px 2px 0 rgba(0,0,0,0.5),
+      0px -1px 0 rgba(0,0,0,0.5),
+      0px -2px 0 rgba(0,0,0,0.5),
+      1px 1px 0 rgba(0,0,0,0.5),
+      2px 2px 0 rgba(0,0,0,0.5),
+      -1px -1px 0 rgba(0,0,0,0.5),
+      -2px -2px 0 rgba(0,0,0,0.5),
+      -1px 1px 0 rgba(0,0,0,0.5),
+      -2px 2px 0 rgba(0,0,0,0.5),
+      1px -1px 0 rgba(0,0,0,0.5),
+      2px -2px 0 rgba(0,0,0,0.5);
+      transition: background-color 0.25s ease-in-out;
+      border-radius: 1em;
+      border: rgba(0, 0, 0, 0.25) solid 10px;
+    }
+    #runJS {
+      background-color: green;
+      color: white;
+      opacity: 0.75;
+      font-size: 2.5em;
+      padding: 0.5em;
+      margin-top: 0.5em;
+      border-radius: 1em;
+    }
+    #runJS:hover {
+      background-color: red;
+    }
+    a {
+      text-decoration: none;
+    }
+</style>
+    <script>var rNum = function(f,z) {
+      var x = Math.floor((Math.random() * (z + 1)) + f);
+      return x;
+    };
+
+    var descBank = ["Angry","Sad","Neutral","Happy","Confused","Excited","Nervous","Shy","Psychotic","Lifeless",
+    "Insane","Sick","Lost","Hot","Sexy","Seductive","Ugly","Thicc","Busty","Short","Erotic","Badass","Fit","Depressed",
+    "Abusive","Drunk","Tiny","Muscular","Giant","Innocent","Crying","Embarrased","Fat","Skinny","Sleepy","Nerdy","Souless",
+    "Distressed","Sweating","Wet","Disgusted","Deformed","Paraplegic","Tall","Cold","Dying","Overweight","Thin","Large",
+    "Wide","Fiesty","Caring","Eccentric","Fancy","Old Fashioned","Modern","Colourful","Religious","Androgynous","Sticc",
+    "Dumb","Clumsy","Bizarre","Cute","Adorable","Young","Old", "Chubby"];
+
+    var raceBank = ["Human","Elf","Dragon","Panda","Orc","Fairy","Angel","Harpy","Demon","Naga","Ghost","Succubus",
+    "Zombie","Pokemon","Dog","Elk","Ant","Butterfly","Bee","Shark","Kitten","Teenager","Canadian","French","Bogan",
+    "Baguette","Old","Bird","Manticore","Gremlin","Slime","Turtle","Cat","Mouse","Robot","Neko","Puppet","Mimic","Skeleton",
+    "Spider","Alien","Bat","Genie","Bear","Dwarf","Yeti","Wyvern","Goblin","Android","Monster","Sphinx","Lizard","Object-Head",
+    "Weeping Angel","Rock","Golem","Elemental","Wolf","Spirit","Wisp","Tiger","Rabbit","Insect","Chimera","Beast","Jackal",
+    "Mutant","Cyclops", "Rabbit", "Cryptid", "Duck"];
+
+    var jobBank = ["Cleaner","Knight","Warrior","Waiter","Dancer","Boxer","Artist","Manager","Programmer","Rapper","Ninja",
+    "Bar Tender","Maid","Nurse","Doctor","Engineer","Sherif","Thief","Drifter","Murderer","Singer","Memer","Alcoholic",
+    "Wizard","Archer","Monk","DJ","Assassin","Baker","Bum","Miner","Teacher","Sailor","Soldier","Mechanic","Scientist",
+    "Philosopher","Time Traveler","Librarian","Student","Tourist","Superhero","Supervillan","Mayor","Model","Salesperson",
+    "Janitor","Mathematician","Football Player", "Coach", "Nutritionist","Criminal","Producer","Priest","Secretary","Animator",
+    "Builder","Lawyer","Gardener","Director","Actor","Musician","Dentist", "Baseball Player", "Architect"];
+
+    var encourage = function() {
+      document.querySelectorAll("li")[0].innerHTML = "I believe" + "<br><br>" + "(With love!)";
+      document.querySelectorAll("li")[1].innerHTML = "in" + "<br><br>" + "(You can do it!)";
+      document.querySelectorAll("li")[2].innerHTML = "you" + "<br><br>" + "(Believe!)";
+      document.querySelectorAll("li")[0].style.backgroundColor = "#f600ff";
+      document.querySelectorAll("li")[1].style.backgroundColor = "#f600ff";
+      document.querySelectorAll("li")[2].style.backgroundColor = "#f600ff";
+      document.querySelector("html").style.backgroundColor = "rgba(255, 0, 0, 0.15)";
+    };
+
+    var main = function() {
+      event.preventDefault();
+      var x = rNum(1,1000);
+      if (x == 1) {
+        encourage();
+        return false;
+      }else{
+        var x = rNum(0,descBank.length - 1);
+        var y = rNum(0,raceBank.length - 1);
+        var z = rNum(0,jobBank.length - 1);
+
+        var xc = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        var yc = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        var zc = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+
+        document.querySelectorAll("li")[0].innerHTML = descBank[x] + "<br><br>" + xc;
+        document.querySelectorAll("li")[1].innerHTML = raceBank[y] + "<br><br>" + yc;
+        document.querySelectorAll("li")[2].innerHTML = jobBank[z] + "<br><br>" + zc;
+
+        document.querySelectorAll("li")[0].style.backgroundColor = xc;
+        document.querySelectorAll("li")[1].style.backgroundColor = yc;
+        document.querySelectorAll("li")[2].style.backgroundColor = zc;
+
+        x = rNum(0,255);
+        y = rNum(0,255);
+        z = rNum(0,255);
+
+        document.querySelector("html").style.backgroundColor = "rgba("+ x +", "+ y +", "+ z +", 0.15)";
+
+        return false;
+      }
+    };
+</script>
+  </head>
+  <body>
+    <div id="allContent">
+      <h1>Random Idea Generator</h1>
+      <ul id="slotBox">
+        <li>?</li>
+        <li>?</li>
+        <li>?</li>
+      </ul>
+      <a href="#" onclick="main();"><div id="runJS">SPIN!</div></a>
+    </div>
+  </body>
+</html>
